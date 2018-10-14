@@ -1,12 +1,18 @@
-﻿<!--?xml version="1.0"?-->
-
-    SendFastEmail
-    $version$
-    SendFastEmail
-    Ahmet Cefakar
-    Ahmet Cefakar
-    https://github.com/AhmetCefakar/SendFastEmail.git
-    false
-    Send Email
-    Copyright 2018 Ahmet Cefakar
-    Send Fast Email
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Send Email</title>
+    <authors>Ahmet Cefakar</authors>
+    <owners>Ahmet Cefakar</owners>
+    <licenseUrl></licenseUrl>
+    <projectUrl>https://github.com/AhmetCefakar/SendFastEmail.git</projectUrl>
+    <iconUrl></iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This Packet Created For Send Fast Email.</description>
+    <releaseNotes>This Packet Created For Send Fast Email.</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags></tags>
+  </metadata>
+</package>
