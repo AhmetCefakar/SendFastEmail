@@ -11,32 +11,33 @@ namespace SendFastEmail
 	public static class EMail
 	{
 		/// <summary>
-		/// Aldığı modele göre mail yollama işlemini yapan metod, Bu metod ile dosya yolu ile ya da fileStream olarak dosya eklenebiliyor
+		/// The method of sending the mail according to the model, the file can be added to this method by file or fileStream
+		/// Aldığı modele göre mail yollama işlemini yapan metod, Bu metod'a dosya yolu ile ya da fileStream olarak dosya eklenebiliyor
 		/// </summary>
-		/// <param name="mailModel">Gönderilecek Olan Maille İlgili Verileri Tutan Model</param>
-		/// <returns> 'MailSendResult' modeli tipinden mail gönderme işlemi sonucunu</returns>
+		/// <param name="mailModel">Model Holding the Mail-Related Data</param>
+		/// <returns> 'MailSendResult' sending a mail from a model type</returns>
 		public static MailSendResult Send(MailContent mailModel)
 		{
 			MailSendResult sendResult = null;
 
 			try
 			{
-				// Yollanacak olan mail'in ayarlanması
+				// Setting the mail to be sent (Yollanacak olan mailin ayarlanması)
 				// To  : Mail'in kime yollanacağı listesi
 				// CC  : Gönderilen Mail'den bilgisi olması istene kişilerin eklendiği liste. Mail'i alan kişi ya da kişiler bilgi için eklenen kişileri görebilir. 
 				// BCC : Gönderilen Mail'den bilgisi olması istene kişilerin eklendiği liste. Mail'i alan kişi kişiler bilgi bilgi için eklenen kişileri göremez ve ayrıca To'daki kişiler cevap yazınca Bcc'deki kişelere gitmez
 				using (MailMessage mailMessage = new MailMessage())
 				{
 					mailMessage.From = mailModel.From;
-					mailModel.ToList.ForEach(q => mailMessage.To.Add(q)); // Bu şekilde birden fazla mail adresi eklene biliyor
+					mailModel.ToList.ForEach(q => mailMessage.To.Add(q)); // Multiple mail addresses can be added this way (Bu şekilde birden fazla mail adresi eklenebiliyor)
 					mailModel.CCList.ForEach(q => mailMessage.CC.Add(q));
 					mailModel.BccList.ForEach(q => mailMessage.Bcc.Add(q));
 					mailMessage.Subject = mailModel.Subject;
 					mailMessage.Body = mailModel.Body;
 					mailMessage.IsBodyHtml = mailModel.IsBodyHtml;
 
-					#region Seçilen dosyaların mail'e eklenmesi
-					// Dosya yollarından ekleme işlemi
+					#region Adding selected files to mail(Seçilen dosyaların mail'e eklenmesi)
+					// The process of adding file paths (Dosya yollarından ekleme işlemi)
 					if (mailModel.FilePaths != null)
 					{
 						foreach (string filePath in mailModel.FilePaths)
@@ -49,7 +50,7 @@ namespace SendFastEmail
 						}
 					}
 
-					// MemoryStream'den dosya ekleme işlemi
+					//Adding files from MemoryStream (MemoryStream'den dosya ekleme işlemi)
 					if (mailModel.StreamModels != null)
 					{
 						foreach (StreamModel streamModel in mailModel.StreamModels)
@@ -59,7 +60,7 @@ namespace SendFastEmail
 					}
 					#endregion
 
-					#region Smtp ayarlarının tanımlanması. İstenirse Veritabanından çekilip smtp ayarları tanımlanabilir
+					#region Defining smtp settings (Smtp ayarlarının tanımlanması)
 					SmtpClient smtp = new SmtpClient
 					{
 						Host = mailModel.SmtpConfiguration.Host,
@@ -73,7 +74,7 @@ namespace SendFastEmail
 					smtp.Credentials = new NetworkCredential(mailModel.Email.Trim(), mailModel.Password.Trim());
 					smtp.Send(mailMessage);
 
-					// Bu kısma geliniyorsa mail gönderirken hata alınmamıştır
+					// If this section does not receive an error when sending mail (Bu kısma geliniyorsa mail gönderirken hata alınmamıştır)
 					sendResult = new MailSendResult
 					{
 						Description = "Email Sent",
@@ -110,6 +111,7 @@ namespace SendFastEmail
 			{
 				smtp.Send(mailModel);
 
+				// If this section does not receive an error when sending mail
 				// Bu kısma geliniyorsa mail gönderirken hata alınmamıştır
 				sendResult = new MailSendResult
 				{

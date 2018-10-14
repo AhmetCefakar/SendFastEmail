@@ -9,7 +9,8 @@ using SendFastEmail.Enums;
 namespace SendFastEmail.Models
 {
 	/// <summary>
-	/// Mail yollama sırasında alınan sınucun döndürülmesi için kullanılan model
+	/// The model used to return the result received while sending mail
+	/// Mail yollama sırasında alınan sonucun döndürülmesi için kullanılan model
 	/// </summary>
 	public class MailSendResult
 	{

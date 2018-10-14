@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SendFastEmail.Models
 {
+	/// <summary>
+	/// This model hold Smtp settings
+	/// </summary>
 	public class SmtpConfiguration
 	{
 		public string Host { get; set; }

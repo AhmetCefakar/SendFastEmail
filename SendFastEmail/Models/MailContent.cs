@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace SendFastEmail.Models
 {
-	/// <summary>
+	/// <summary>,
+	/// This class keeps the model of mail to be sent
 	/// Bu sınıf gönderilecek olan mailin modelini tutmaktadır
 	/// </summary>
 	public class MailContent
@@ -22,7 +23,7 @@ namespace SendFastEmail.Models
 			BccList = new List<MailAddress>();
 		}
 
-		// Mail ile ilgili parametreler
+		// Mail related parameters (Mail ile ilgili parametreler)
 		public MailAddress From { get; set; }
 		public List<MailAddress> ToList { get; set; }
 		public List<MailAddress> CCList { get; set; }
