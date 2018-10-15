@@ -7,6 +7,13 @@
     <NeutralLanguage>en</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>This Packet Created For Send Fast Email.</PackageReleaseNotes>
+    <PackageTags>Fast Email</PackageTags>
+    <RepositoryType>C# Standart .dll</RepositoryType>
+    <Copyright>Copyright 2018</Copyright>
+    <PackageLicenseUrl>https://github.com/AhmetCefakar/SendFastEmail.git</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/AhmetCefakar/SendFastEmail.git</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AhmetCefakar/SendFastEmail.git</RepositoryUrl>
   </PropertyGroup>
 
 </Project>

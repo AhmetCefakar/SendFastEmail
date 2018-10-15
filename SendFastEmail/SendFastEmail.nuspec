@@ -1,17 +1,20 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
+    <id>SendFastEmail</id>
     <version>$version$</version>
-    <title>Fast Send Email</title>
+    <title>Send Fast Email</title>
     <authors>Ahmet Cefakar</authors>
     <owners>Ahmet Cefakar</owners>
+    <licenseUrl>https://github.com/AhmetCefakar/SendFastEmail.git</licenseUrl>
     <projectUrl>https://github.com/AhmetCefakar/SendFastEmail.git</projectUrl>
-    <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>This Packet Created For Send Fast Email</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <description>This Packet Created For Send Fast Email.</description>
+    <releaseNotes>This Packet Created For Send Fast Email.</releaseNotes>
     <copyright>Copyright 2018</copyright>
-    <tags>Tag1 Tag2</tags>
+    <tags>FastEmail</tags>
   </metadata>
+  <files>
+    <file src="bin\Release\netstandard2.0\SendFastEmail.dll" target="lib"></file>
+  </files> 
 </package>
