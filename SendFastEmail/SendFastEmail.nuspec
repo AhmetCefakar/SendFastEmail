@@ -14,7 +14,5 @@
     <copyright>Copyright 2018</copyright>
     <tags>FastEmail</tags>
   </metadata>
-  <files>
-    <file src="bin\Release\netstandard2.0\SendFastEmail.dll" target="lib"></file>
-  </files> 
+  
 </package>
