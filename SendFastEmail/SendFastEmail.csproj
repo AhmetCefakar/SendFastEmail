@@ -5,7 +5,7 @@
     <Authors>Ahmet Cefakar</Authors>
     <Description>This Packet Created For Send Fast Email</Description>
     <NeutralLanguage>en</NeutralLanguage>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>This Packet Created For Send Fast Email.</PackageReleaseNotes>
     <PackageTags>Fast Email</PackageTags>
