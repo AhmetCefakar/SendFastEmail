@@ -27,6 +27,6 @@
     <!--<file src="obj\$configuration$\$id$.dll" target="lib/{framework name}[{version}]" />-->
     <!--<file src="bin\$configuration$\$id$.dll" target="lib/{framework name}[{version}]" />-->
     <!--<file src="bin\$configuration$\$id$.dll" target="lib/{framework name}[{version}]" />-->
-    <file src="lib\**" target="lib/{framework name}[{version}]" />
+    <!--<file src="lib\**" target="lib/{framework name}[{version}]" />-->
   </files>
 </package>
