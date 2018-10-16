@@ -9,3 +9,7 @@ English: https://www.youtube.com/watch?v=BsTeUs0Y5TM
 <files>
     <file src="bin\Release\netstandard2.0\SendFastEmail.dll" target="lib"></file>
   </files> 
+
+<files>
+    <file src="lib\**" target="lib/{framework name}[{version}]" />
+  </files>

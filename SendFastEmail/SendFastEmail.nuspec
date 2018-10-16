@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>SendFastEmail</id>
-    <version>$version$</version>
+    <version>1.0.3.4</version>
     <title>Send Fast Email</title>
     <authors>Ahmet Cefakar</authors>
     <owners>Ahmet Cefakar</owners>
@@ -12,7 +12,21 @@
     <description>This Packet Created For Send Fast Email.</description>
     <releaseNotes>This Packet Created For Send Fast Email.</releaseNotes>
     <copyright>Copyright 2018</copyright>
-    <tags>FastEmail</tags>
+    <tags>EmailSend</tags>
+    <repository type="C# Standart .dll" url="https://github.com/AhmetCefakar/SendFastEmail.git" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.0" />
+      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
   </metadata>
-  
+  <files>
+    <file src="C:\Users\huzur\Desktop\SendFastEmail\SendFastEmail\bin\net40\SendFastEmail.dll" target="lib\net40\SendFastEmail.dll" />
+    <file src="C:\Users\huzur\Desktop\SendFastEmail\SendFastEmail\bin\net45\SendFastEmail.dll" target="lib\net45\SendFastEmail.dll" />
+    <file src="C:\Users\huzur\Desktop\SendFastEmail\SendFastEmail\bin\netstandard2.0\SendFastEmail.dll" target="lib\netstandard2.0\SendFastEmail.dll" />
+    <!--<file src="obj\$configuration$\$id$.dll" target="lib/{framework name}[{version}]" />-->
+    <!--<file src="bin\$configuration$\$id$.dll" target="lib/{framework name}[{version}]" />-->
+    <!--<file src="bin\$configuration$\$id$.dll" target="lib/{framework name}[{version}]" />-->
+    <!--<file src="lib\**" target="lib/{framework name}[{version}]" />-->
+  </files>
 </package>

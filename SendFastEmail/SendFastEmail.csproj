@@ -11,9 +11,13 @@
     <PackageTags>Fast Email</PackageTags>
     <RepositoryType>C# Standart .dll</RepositoryType>
     <Copyright>Copyright 2018</Copyright>
+    <OutputPath>bin\</OutputPath>
     <PackageLicenseUrl>https://github.com/AhmetCefakar/SendFastEmail.git</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/AhmetCefakar/SendFastEmail.git</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AhmetCefakar/SendFastEmail.git</RepositoryUrl>
+    <Version>1.0.3.3</Version>
+    <AssemblyVersion>1.0.3.3</AssemblyVersion>
+    <FileVersion>1.0.3.3</FileVersion>
   </PropertyGroup>
 
 </Project>
