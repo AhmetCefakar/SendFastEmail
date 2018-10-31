@@ -5,7 +5,7 @@
     <Authors>Ahmet Cefakar</Authors>
     <Description>This Packet Created For Send Fast Email</Description>
     <NeutralLanguage>en</NeutralLanguage>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>This Packet Created For Send Fast Email.</PackageReleaseNotes>
     <PackageTags>Fast Email</PackageTags>
@@ -15,9 +15,9 @@
     <PackageLicenseUrl>https://github.com/AhmetCefakar/SendFastEmail.git</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/AhmetCefakar/SendFastEmail.git</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AhmetCefakar/SendFastEmail.git</RepositoryUrl>
-    <Version>1.0.3.3</Version>
-    <AssemblyVersion>1.0.3.3</AssemblyVersion>
-    <FileVersion>1.0.3.3</FileVersion>
+    <Version>1.0.4.2</Version>
+    <AssemblyVersion>1.0.4.2</AssemblyVersion>
+    <FileVersion>1.0.4.2</FileVersion>
   </PropertyGroup>
 
 </Project>
