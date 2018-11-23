@@ -11,6 +11,47 @@ namespace SendFastEmail
 {
 	public static class EMail
 	{
+		#region Core Send Methods
+		/// <summary>
+		/// If you use this method, you should give true MailMessage and SmtpClient model
+		/// Main Send Method
+		/// </summary>
+		/// <param name="mailModel">Email Settings</param>
+		/// <param name="smtp">Smtp Settings</param>
+		/// <returns>Returns, Mail Send Status</returns>
+		public static MailSendResult Send(MailMessage mailModel, SmtpClient smtp)
+		{
+			MailSendResult sendResult = null;
+
+			try
+			{
+				smtp.Send(mailModel);
+
+				// If this section does not receive an error when sending mail
+				// Bu kısma geliniyorsa mail gönderirken hata alınmamıştır
+				sendResult = new MailSendResult
+				{
+					Description = "Email Sent",
+					ErrorMessage = null,
+					Result = MailResult.OK
+				};
+			}
+			catch (Exception ex)
+			{
+				sendResult = new MailSendResult
+				{
+					Result = MailResult.Error,
+					Description = "An Error Occurred While Email Send!",
+					ErrorMessage = ex.Message,
+					Exception = ex
+				};
+			}
+
+			mailModel.Dispose();
+			smtp.Dispose();
+			return sendResult;
+		}
+
 		/// <summary>
 		/// The method of sending the mail according to the model, the file can be added to this method by file or fileStream
 		/// Aldığı modele göre mail yollama işlemini yapan metod, Bu metod'a dosya yolu ile ya da fileStream olarak dosya eklenebiliyor
@@ -70,50 +111,52 @@ namespace SendFastEmail
 			};
 			#endregion
 			#endregion
-			
+
 			return Send(mailMessage, smtp);
+		}
+		#endregion
+
+		#region Sending with Gmail, Yandex etc. 
+
+		private static MailSendResult Send(MailContent mailModel, string host, int port)
+		{
+			mailModel.SmtpConfiguration = new SmtpConfiguration
+			{
+				Host = host,
+				Port = port,
+				EnableSsl = true,
+				UseDefaultCredentials = false,
+				DeliveryMethod = SmtpDeliveryMethod.Network
+			};
+			return Send(mailModel);
 		}
 
 		/// <summary>
-		/// If you use this method, you should give true MailMessage and SmtpClient model
-		/// Main Send Method
+		/// The method of sending mail via Gmail according to the model. This method can be added to file by file or as fileStream
+		/// Aldığı modele göre Gmail üzerinden mail yollama işlemini yapan metod. Bu metod'a dosya yolu ile ya da fileStream olarak dosya eklenebiliyor
 		/// </summary>
-		/// <param name="mailModel">Email Settings</param>
-		/// <param name="smtp">Smtp Settings</param>
-		/// <returns>Returns, Mail Send Status</returns>
-		public static MailSendResult Send(MailMessage mailModel, SmtpClient smtp)
+		/// <param name="mailModel">Model Holding the Mail-Related Data</param>
+		/// <returns> 'MailSendResult' sending a mail from a model type</returns>
+		public static MailSendResult SendWithGmail(MailContent mailModel)
 		{
-			MailSendResult sendResult = null;
-
-			try
-			{
-				smtp.Send(mailModel);
-
-				// If this section does not receive an error when sending mail
-				// Bu kısma geliniyorsa mail gönderirken hata alınmamıştır
-				sendResult = new MailSendResult
-				{
-					Description = "Email Sent",
-					ErrorMessage = null,
-					Result = MailResult.OK
-				};
-			}
-			catch (Exception ex)
-			{
-				sendResult = new MailSendResult
-				{
-					Result = MailResult.Error,
-					Description = "An Error Occurred While Email Send!",
-					ErrorMessage = ex.Message,
-					Exception = ex
-				};
-			}
-
-			mailModel.Dispose();
-			smtp.Dispose();
-			return sendResult;
+			return Send(mailModel, "smtp.gmail.com", 587);
 		}
 
+		/// <summary>
+		/// The method of sending mail via Yandex according to the model. This method can be added to file by file or as fileStream
+		/// Aldığı modele göre Yandex üzerinden mail yollama işlemini yapan metod. Bu metod'a dosya yolu ile ya da fileStream olarak dosya eklenebiliyor
+		/// </summary>
+		/// <param name="mailModel">Model Holding the Mail-Related Data</param>
+		/// <returns> 'MailSendResult' sending a mail from a model type</returns>
+		public static MailSendResult SendWithYandex(MailContent mailModel)
+		{
+			return Send(mailModel, "smtp.yandex.com", 587);
+		}
+
+
+		#endregion
+		
+		#region Sending With String Paramaters
 		/// <summary>
 		/// Use this method, If you want to use string paramaters for send a email
 		/// </summary>
@@ -155,7 +198,7 @@ namespace SendFastEmail
 
 
 		/// <summary>
-		/// Use this method, If you want to use string paramaters for send a email
+		/// Use this method, If you want to use string paramaters for send some email
 		/// </summary>
 		/// <param name="body">Mail Body</param>
 		/// <param name="subject">Mail Subject</param>
@@ -226,6 +269,6 @@ namespace SendFastEmail
 
 			return Send(mailContent);
 		}
-
+		#endregion
 	}
 }
